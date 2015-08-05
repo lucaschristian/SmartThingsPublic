@@ -1,4 +1,4 @@
-    /**
+/**
      *  Magic Home
      *
      *  Copyright 2014 Tim Slagle
@@ -31,9 +31,9 @@
         	input "falseAlarmThreshold", "decimal", title: "Number of minutes", required: false
       	}
     
-      	section("Zip code (for sunrise/sunset)") {
-       		input "zip", "decimal", required: true
-      	}
+      	//section("Zip code (for sunrise/sunset)") {
+       	//	input "zip", "decimal", required: true
+      	//}
     
           section("Notifications") {
             input "sendPushMessage", "enum", title: "Send a push notification when house is empty?", metadata:[values:["Yes","No"]], required:false
@@ -93,8 +93,9 @@
     
     //check current sun state when installed.
     def checkSun() {
-      def zip     = settings.zip as String
-      def sunInfo = getSunriseAndSunset(zipCode: zip)
+      //def zip     = settings.zip as String
+      //def sunInfo = getSunriseAndSunset(zipCode: zip)
+     def sunInfo = getSunriseAndSunset()
      def current = now()
     
     if (sunInfo.sunrise.time < current && sunInfo.sunset.time > current) {
