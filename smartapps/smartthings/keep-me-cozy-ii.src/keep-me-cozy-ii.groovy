@@ -95,6 +95,7 @@ private evaluate()
 				log.debug "thermostat.setCoolingSetpoint(${ct + 2}), OFF"
 			}
 		}
+		//Agregar que pasa si Termostato esta apagado.
 		if (tm in ["heat","emergency heat","auto"]) {
 			// heater
 			if (heatingSetpoint - currentTemp >= threshold) {
