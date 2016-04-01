@@ -142,4 +142,3 @@ def setSaturation(value) {
     def scaledSatValue = zigbee.convertToHexString(Math.round(value * 0xfe / 100.0), 2)
     zigbee.command(COLOR_CONTROL_CLUSTER, SATURATION_COMMAND, scaledSatValue, "0500")      //payload-> sat value, transition time
 }
-}
