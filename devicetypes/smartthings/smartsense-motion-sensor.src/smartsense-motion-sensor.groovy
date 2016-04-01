@@ -386,7 +386,7 @@ private Map getMotionResult(value) {
 }
 
 def refresh() {
-	log.debug "refresh called"
+	log.debug "refresh executed"
 	def refreshCmds = [
 		"st rattr 0x${device.deviceNetworkId} 1 0x402 0", "delay 200",
 		"st rattr 0x${device.deviceNetworkId} 1 1 0x20", "delay 200"

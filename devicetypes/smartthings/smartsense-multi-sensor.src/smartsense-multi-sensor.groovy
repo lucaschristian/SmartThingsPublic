@@ -281,7 +281,7 @@ private Map parseIasMessage(String description) {
 
 	Map resultMap = [:]
 	switch(msgCode) {
-		case '0x0020': // Closed/No Motion/Dry
+        case '0x0020': // Closed/No Motion/Dry
 			if (garageSensor != "Yes"){
 				resultMap = getContactResult('closed')
 			}
