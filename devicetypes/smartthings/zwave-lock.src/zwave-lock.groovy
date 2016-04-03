@@ -45,7 +45,12 @@ metadata {
 				attributeState "jammed", label:"jammed", action:"lock.locl", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 				attributeState "jammed", label:"jammed", action:"lock.locl", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+=======
+				attributeState "jammed", label:"jammed", action:"lock.lock", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+>>>>>>> pr/100
+>>>>>>> master
 =======
 				attributeState "jammed", label:"jammed", action:"lock.lock", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
 >>>>>>> pr/100
@@ -193,7 +198,12 @@ def zwaveEvent(physicalgraph.zwave.commands.alarmv2.AlarmReport cmd) {
 				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed" ]
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed" ]
+=======
+				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed", displayed: true, eventType: "ALERT" ]
+>>>>>>> pr/100
+>>>>>>> master
 =======
 				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed", displayed: true, eventType: "ALERT" ]
 >>>>>>> pr/100
@@ -287,7 +297,12 @@ def zwaveEvent(physicalgraph.zwave.commands.alarmv2.AlarmReport cmd) {
 			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed" ]
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed" ]
+=======
+			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed", displayed: true, eventType: "ALERT" ]
+>>>>>>> pr/100
+>>>>>>> master
 =======
 			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed", displayed: true, eventType: "ALERT" ]
 >>>>>>> pr/100
