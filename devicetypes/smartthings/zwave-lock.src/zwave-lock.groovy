@@ -41,7 +41,15 @@ metadata {
 				attributeState "locked", label:'locked', action:"lock.unlock", icon:"st.locks.lock.locked", backgroundColor:"#79b821", nextState:"unlocking"
 				attributeState "unlocked", label:'unlocked', action:"lock.lock", icon:"st.locks.lock.unlocked", backgroundColor:"#ffffff", nextState:"locking"
 				attributeState "unknown", label:"unknown", action:"lock.lock", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+<<<<<<< HEAD
 				attributeState "jammed", label:"jammed", action:"lock.lock", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+=======
+<<<<<<< HEAD
+				attributeState "jammed", label:"jammed", action:"lock.locl", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+=======
+				attributeState "jammed", label:"jammed", action:"lock.lock", icon:"st.locks.lock.unknown", backgroundColor:"#ffffff", nextState:"locking"
+>>>>>>> pr/100
+>>>>>>> master
 				attributeState "locking", label:'locking', icon:"st.locks.lock.locked", backgroundColor:"#79b821"
 				attributeState "unlocking", label:'unlocking', icon:"st.locks.lock.unlocked", backgroundColor:"#ffffff"
 			}
@@ -181,7 +189,15 @@ def zwaveEvent(physicalgraph.zwave.commands.alarmv2.AlarmReport cmd) {
 				map = [ name: "lock", value: "unknown", descriptionText: "$device.displayName was not locked fully" ]
 				break
 			case 0xB:
+<<<<<<< HEAD
 				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed", displayed: true, eventType: "ALERT" ]
+=======
+<<<<<<< HEAD
+				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed" ]
+=======
+				map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName is jammed", displayed: true, eventType: "ALERT" ]
+>>>>>>> pr/100
+>>>>>>> master
 				break
 			case 0xC:
 				map = [ name: "codeChanged", value: "all", descriptionText: "$device.displayName: all user codes deleted", isStateChange: true ]
@@ -267,7 +283,15 @@ def zwaveEvent(physicalgraph.zwave.commands.alarmv2.AlarmReport cmd) {
 		case 17:
 		case 23:
 		case 26:
+<<<<<<< HEAD
 			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed", displayed: true, eventType: "ALERT" ]
+=======
+<<<<<<< HEAD
+			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed" ]
+=======
+			map = [ name: "lock", value: "jammed", descriptionText: "$device.displayName bolt is jammed", displayed: true, eventType: "ALERT" ]
+>>>>>>> pr/100
+>>>>>>> master
 			break
 		case 13:
 			map = [ name: "codeChanged", value: cmd.alarmLevel, descriptionText: "$device.displayName code $cmd.alarmLevel was added", isStateChange: true ]
