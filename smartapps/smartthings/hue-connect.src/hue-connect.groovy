@@ -161,7 +161,7 @@ private sendDeveloperReq() {
 		headers: [
 			HOST: host
 		],
-		body: [devicetype: "$token-0"]], "${selectedHue}"))
+		body: [devicetype: "$token-0", username: "$token-0"]], "${selectedHue}"))
 }
 
 private discoverHueBulbs() {
@@ -720,9 +720,19 @@ def setColor(childDevice, huesettings) {
     if (huesettings.switch == "off")
         value.on = false
 
+<<<<<<< HEAD
+	log.debug "sending command $value"
+	put("lights/${getId(childDevice)}/state", value)
+
+    if (huesettings.switch == "off")
+		put("lights/${getId(childDevice)}/state", [on: false])
+
+    return "Bulb changed color"
+=======
     log.debug "sending command $value"
     put("lights/${getId(childDevice)}/state", value)
     return "Color set to $value"
+>>>>>>> SmartThingsCommunity/master
 }
 
 def nextLevel(childDevice) {

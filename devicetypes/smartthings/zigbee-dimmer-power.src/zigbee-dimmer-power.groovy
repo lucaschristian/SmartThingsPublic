@@ -27,6 +27,7 @@ metadata {
         fingerprint profileId: "0104", inClusters: "0000, 0003, 0004, 0005, 0006, 0008, 0702, 0B05", outClusters: "0019", manufacturer: "sengled", model: "Z01-CIA19NAE26", deviceJoinName: "Sengled Element touch"
         fingerprint profileId: "0104", inClusters: "0000, 0003, 0004, 0005, 0006, 0008, 0702, 0B05", outClusters: "000A, 0019", manufacturer: "Jasco Products", model: "45852", deviceJoinName: "GE Zigbee Plug-In Dimmer"
         fingerprint profileId: "0104", inClusters: "0000, 0003, 0004, 0005, 0006, 0008, 0702, 0B05", outClusters: "000A, 0019", manufacturer: "Jasco Products", model: "45857", deviceJoinName: "GE Zigbee In-Wall Dimmer"
+        fingerprint profileId: "0104", deviceId: "1", inClusters: "1", outClusters: "1", manufacturer: "qbkydyic", model: "kroffjdq", deviceJoinName: "iaqnealg"
     }
 
     tiles(scale: 2) {
@@ -88,10 +89,29 @@ def setLevel(value) {
 }
 
 def refresh() {
-    zigbee.onOffRefresh() + zigbee.levelRefresh() + zigbee.simpleMeteringPowerRefresh() + zigbee.electricMeasurementPowerRefresh() + zigbee.onOffConfig() + zigbee.levelConfig() + zigbee.simpleMeteringPowerConfig() + zigbee.electricMeasurementPowerConfig()
+    return zigbee.readAttribute(0x0006, 0x0000) +
+           zigbee.readAttribute(0x0008, 0x0000) +
+           zigbee.readAttribute(0x0702, 0x0400) +
+           zigbee.readAttribute(0x0B04, 0x050B) +
+           zigbee.configureReporting(0x0006, 0x0000, 0x10, 0, 600, null) +
+           zigbee.configureReporting(0x0008, 0x0000, 0x20, 1, 3600, 0x01) +
+           zigbee.configureReporting(0x0702, 0x0400, 0x2A, 1, 600, 0x05) +
+           zigbee.configureReporting(0x0B04, 0x050B, 0x29, 1, 600, 0x0005)
 }
 
 def configure() {
     log.debug "Configuring Reporting and Bindings."
+<<<<<<< HEAD
     zigbee.onOffConfig() + zigbee.levelConfig() + zigbee.simpleMeteringPowerConfig() + zigbee.electricMeasurementPowerConfig() + zigbee.onOffRefresh() + zigbee.levelRefresh() + zigbee.simpleMeteringPowerRefresh() + zigbee.electricMeasurementPowerRefresh()
 }
+=======
+    return zigbee.configureReporting(0x0006, 0x0000, 0x10, 0, 600, null) +
+	   zigbee.configureReporting(0x0008, 0x0000, 0x20, 1, 3600, 0x01) +
+	   zigbee.configureReporting(0x0702, 0x0400, 0x2A, 1, 600, 0x05) +
+	   zigbee.configureReporting(0x0B04, 0x050B, 0x29, 1, 600, 0x0005) +
+	   zigbee.readAttribute(0x0006, 0x0000) +
+	   zigbee.readAttribute(0x0008, 0x0000) +
+	   zigbee.readAttribute(0x0702, 0x0400) +
+	   zigbee.readAttribute(0x0B04, 0x050B)
+}
+>>>>>>> master
